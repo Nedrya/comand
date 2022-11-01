@@ -1,0 +1,56 @@
+ssh-keygen  - сгенерировать ssh key
+
+cat ~/.ssh/id_rsa.pub   - посмотреть ssh
+
+cat - быстро посмотреть содержимое файла
+
+touch  - создание файла (touch index.html style.css)
+
+mkdir - создать деректорию
+
+cd ~  - перейти в домашнюю деректорию
+
+rm  - удалить файл ( или рекурсивно всю папку : rm -r <папка>/ )
+
+cp  - копировать папку или файл (cp ../logs/logs.txt <дать новое название>.txt )
+
+scp  - копирование файла на удаленый сервер (scp infra/docker-compose.yaml camana@51.250.21.67:/home/camana)
+
+mv - перенести файл или папку (mv card.txt ~/ )
+
+nano - редактирование файла (nano название-файла-или-путь-к-файлу)
+
+sudo groupadd  - создать группу
+
+sudo usermod  - добавить в группу (sudo usermod -aG <группа> <юзер>) -G назначает пользователю новую группу, -a добавляет новую группу в список групп пользователя
+
+chmod - назначение прав доступа (chmod -R <путь к папке> )
+
+chgrp <группа> <куда дать доступ>  -  дать группе права к папке
+
+sudo useradd <имя>   - создать пользователя
+
+sudo passwd <пароль>   - сменить пароль пользователя
+
+ps  - список запущенных процессов ( ps -aux  - расширенный)
+
+locale  - проверка настроек удаленного сервера.
+
+groups <username>  -посмотреть группы пользователя.
+
+sudo dpkg-reconfigure locales  - смена языка.
+
+sudo reboot  - перезагрузка сервера.
+
+
+
+##### Установка Python на VM:
+
+Установка python 3.7:
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
+sudo apt install python3.7-venv -y
+Cоздание вирт.окр. с нужной версией питона:
+python3.7 -m venv venv
+
+

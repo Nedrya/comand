@@ -1,0 +1,18 @@
+Рассказваю на windows:
+1)зарегился на heroku
+2)скачал и установил herokuCLI
+https://devcenter.heroku.com/articles/heroku-cli
+3. в windows открываешь командную строку не git bash, а именно командную строку
+4. переходишь в папку с ботом
+5. вводишь в командной строке heroku login должен открыться браузер там нажимаешь логин.
+Далее в командной строке
+6. в папке с ботом git init
+7.  heroku git:remote -a название_бота_на_heroku
+Например:
+heroku git:remote -a mybot1
+8. git add .
+9. git commit -am "make it better"
+10. git push heroku master
+11. Открываешь теорию -
+Деплой бота и там читаешь -
+Переменные окружения и Бот на старт!

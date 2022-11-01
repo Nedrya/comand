@@ -1,0 +1,59 @@
+docker pull <IMAGE_NAME>  - скачать образ.
+
+docker build -t yamdb .   - Запуск сборки образа.
+
+docker containers restart <container>    - перезагруска контйнера.
+
+docker run --name <имя контейнера> -it -p 8000:8000 <имя образа>  - Запуск контейнера(создание?)
+
+docker-compose up -d  - Разворачивается проект с компосом
+
+docker-compose down -v   - остановка собранных контейнеров и удаление их.
+
+docker stop $(docker ps -q -a) & docker rm $(docker ps -q -a) - остановить и удалить все контейнеры.
+
+docker rmi -f $(docker images -aq)   - удалить все образа
+
+docker image ls  - просмотр локальных образов.
+
+docker container ls (-a) - список запущенных контейнеров. 
+
+docker rm <ID>   - Удалить контейнер по ID.
+
+docker ps  - список запущенных контейнеров. (-a  всех контейнеров)
+
+docker rmi <ID/name>   - Удалить образ.
+
+docker container renameCONTAINER NEW_NAME   - Переименовать контейнер.
+
+docker exec -it <CONTAINER ID> bash   - вход в контейнер для управления.
+
+npm install --legacy-peer-deps    - Очистить виртуальное окружение npm
+
+docker-compose exec web python manage.py migrate
+winpty docker-compose exec web python manage.py createsuperuser
+docker-compose exec web python manage.py collectstatic --no-input
+
+docker cp <container-name>:/path/to/file/in/container .   - копировать с контейнера на сервер
+
+docker cp <file> <container-name>:/path/to/file/in/container   - копировать в контейнер
+
+docker-compose exec web python manage.py dumpdata > fixtures.json   - резервная копия быза
+
+docker-compose down -v   - остановка и удаление контейнеров.
+
+docker logs --follow <container_name>   - просмотр логов.
+
+docker logs <container_name> > docker.log   - сохранить лог в файл.
+
+docker stats   - какие контейнеры сейчас запущены и сколько ресурсов они потребляют.
+
+grep <поисковый-запрос>   - найти инфу в логе.
+
+docker system df   - сколько места на диске занимают образы, контейнеры, тома.
+
+docker container prune   - все остановленные (не активные) контейнеры удаляются.
+
+docker image prune   - удаление промежуточных образов (не привязанных).
+
+docker system prune   - удалить и контейнеры и образа (не активные и не привязанные).

@@ -1,0 +1,187 @@
+git clone <ссылка> - копировать репозитарий
+git pull 
+git push
+git fetch
+git merge <название_ветки> — скопировать все изменения из ветки в ветку
+git branch - просмотр ветки
+git branch <название_ветки> — создать новую ветку.
+git checkout <название_ветки> — переключиться в ветку.
+git checkout -b <название_ветки> — создать ветку и сразу переключиться в неё.
+git checkout master ./ - копирование всей ветки
+git show HEAD - что изменилось в коммите
+git log - информация о коммитах
+git reset ******* - откат обновления (*-первые 7 цифр)
+
+######################
+
+pip freeze - Проверка версий питона (Django==2.2.16)
+pip install -U Django==2.2.16   - откат до версии 2.2.16
+
+# Добавить папку в игнор-лист гита 
+echo '.vscode' >> .gitignore
+
+# Удалить папку из списка отслеживаемых файлов (staging area)
+git rm -r --cached .vscode
+
+# Добавить файл в гит
+git add .gitignore
+
+# Зафиксировать изменения в новом коммите
+git commit -m 'Директория .vscode добавлена в gitignore'
+ 
+# Запушить 
+git push 
+####################################
+py -m venv venv - запуск виртуального окружения
+venv/Scripts/activate - активация окружения
+pip install pytest - запуск менеджера пакетов pip
+deactivate - деактивация
+pytest --version - проверить установился ли pytest
+pytest  - запуск питеста
+Python: Select Linter - выбор анализатора кода
+
+####################################
+pip install pillow - Приложение для работы с картинками, скачать в (venv)
+pip install sorl-thumbnail - установите приложение 
+####################################
+pip install mypy - установка mypy
+mypy temp.py - переходим в деректорию и выбираем файл для проверки
+
+dir() - показывает от куда вытикает функция.
+breakpoint()
+mkdir templates - создать папку
+
+#####################################
+# python3, обнови, пожалуйста, менеджер пакетов pip
+(venv)...$ python3 -m pip install --upgrade pip
+# Менеджер пакетов pip, поставь мне, пожалуйста, Django версии 2.2.19
+(venv)...$ pip install Django==2.2.19
+
+##################################### DJANGO
+#Создание проекта
+django-admin startproject имя_проекта
+
+#Создание приложения
+python manage.py startapp ice_cream
+django-admin startapp
+
+Запуск проекта (переходим в папку с проэктом, активируем виртуальное окружение)
+python manage.py runserver - простой запуск
+python manage.py runserver 0:8000 - запустить сервер для внешних IP
+gunicorn --bind 0.0.0.0:8000 yatube.wsgi - запуск веб сервера nnginx  при помощи Web-Server Gateway Interface (WSGI) 
+Остановка: Ctrl+C
+################_Миграция_####################################
+#Миграция БД:
+Создание скрипта миграции
+python manage.py makemigrations
+Запуск всех миграций
+python manage.py migrate
+Откат миграции
+python manage.py migrate posts *******
+
+python manage.py dumpdata > dump.json  - сохранить БД в json
+
+Создание пользователя суперадмина
+python manage.py createsuperuser
+
+Создание приложения:
+python3 manage.py startapp имя_приложения
+python3 -m django startapp имя_приложения
+django-admin startapp имя_приложения
+
+Создание файла requirements.txt
+pip freeze > requirements.txt 
+В виртуальном окружении установка зависимости
+pip install -r requirements.txt
+
+При развёртывании проекта на новой машине нужно из папки, содержащей requirements.txt, при активированном виртуальном окружении выполнить команду
+(venv) ... Dev/yatube_project$ pip install -r requirements.txt 
+
+#################_Unittest_###################################
+python3 -m unittest -v tests.py
+
+#################_Тестометрик Coverage_########################
+coverage run --source='posts,users' manage.py test -v 2 - ограничит проверку coverage модулями posts и users, пожно поставить '.' для поиска во всей деректории.
+
+coverage report  - посмотреть репорт через терменал
+
+coverage html - сформировать репорт hrml
+
+################_DEBAG_#######################################
+(venv) $ pip install django-debug-toolbar - установка приложения
+
+
+
+
+
+
+##########################__Работа в виртуальном окружении__#########################
+
+sudo - прифекс к команде, для добавления прав администратора
+
+sudo systemctl - увидеть всех запущенных юнитов systemd
+
+which gunicorn - при виртуально запущенном окружении показывает путь до утилиты, в данном примере к gunicorn
+
+####_Менеджер процессов systemd и его настройка:
+
+sudo systemctl - увидеть состояние всех запущенных юнитов systemd
+sudo systemctl start gunicorn # запустить юнит
+sudo systemctl enable gunicorn # добавить юнит в список автозапуска операционной системы
+sudo systemctl status gunicorn # посмотреть статус юнита менеджера процессов
+sudo systemctl start/stop/restart # управление юнитами в менеджере процессов
+
+####_Перезагрузка сервера:
+
+# Перезапустить все службы
+sudo systemctl daemon-reload 
+# Запустить демона gunicorn после перезапуска
+sudo systemctl restart gunicorn
+# Убедиться что gunicorn активен
+sudo systemctl status gunicorn
+
+
+###_NGINX:
+sudo gpasswd -a www-data <your_username> # Включаем пользователя nginx в группу владельца репы
+sudo nginx -t # Проверка конфигураций nginx (после настройки)
+sudo systemctl reload nginx   # Перезапускает nginx
+
+
+###_Настройка файла Gunicorn:
+sudo nano /etc/systemd/system/gunicorn.service
+
+###_Настройка файла nginx:
+sudo nano /etc/nginx/sites-enabled/default 
+
+###_Фаервол ufw:
+sudo ufw allow 'Nginx Full' # разрешит принимать запросы на порты — 80 и 443: на них по умолчанию приходят запросы по HTTP и HTTPS.
+sudo ufw allow OpenSSH # открывает порт 22 — это стандартный порт для соединения по SSH
+sudo ufw enable # включаем фаервол
+sudo ufw status  # проверяем статус работы
+
+###_postgresql:
+
+sudo systemctl stop postgresql # Остановить 
+sudo systemctl start postgresql # Запустить
+sudo systemctl restart postgresql # Перезапустить
+sudo systemctl status postgresql # Узнать статус, текущее состояние 
+sudo cat /var/log/postgresql/postgresql-14-main.log  - логи тут
+/var/lib/postgresql/12/main/   - конфиги тут
+
+###############
+sudo -u postgres psql  - программа-клиент для подключения и управления СУБД
+\l # Gросмотр списка всех БД
+\? # Справка по командам консольного клиента psql
+\h # Справка по доступным командам SQL
+\h <команда> # Справка по конкретной команде
+\du # Список пользователей
+\dt # Список таблиц 
+CREATE DATABASE <name>;   - создание базы
+
+-- Создайте пользователя yatube_user и придумайте свой пароль, посложнее, чем в примере
+CREATE USER yatube_user WITH ENCRYPTED PASSWORD 'xxxyyyzzz'; 
+-- дайте пользователю yatube_user все права при работе с базой yatube 
+GRANT ALL PRIVILEGES ON DATABASE yatube TO yatube_user;
+
+sudo -u postgres psql -c 'create database yatube2;' # Создали пустую базу данных с именем yatube2
+sudo -u postgres psql -d yatube2 -f yatube_backup.dump # Загрузили в неё данные из дампа   
