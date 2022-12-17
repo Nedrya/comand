@@ -1,6 +1,6 @@
 docker pull <IMAGE_NAME>  - скачать образ.
 
-docker build -t yamdb .   - Запуск сборки образа.
+docker build -t camana1/<название> .   - Запуск сборки образа.
 
 docker containers restart <container>    - перезагруска контйнера.
 
@@ -26,7 +26,7 @@ docker rmi <ID/name>   - Удалить образ.
 
 docker container renameCONTAINER NEW_NAME   - Переименовать контейнер.
 
-docker exec -it <CONTAINER ID> bash   - вход в контейнер для управления.
+winpty docker exec -it <CONTAINER ID> bash   - вход в контейнер для управления.
 
 npm install --legacy-peer-deps    - Очистить виртуальное окружение npm
 

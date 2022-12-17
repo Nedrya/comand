@@ -14,7 +14,7 @@ rm  - удалить файл ( или рекурсивно всю папку : 
 
 cp  - копировать папку или файл (cp ../logs/logs.txt <дать новое название>.txt )
 
-scp  - копирование файла на удаленый сервер (scp infra/docker-compose.yaml camana@51.250.21.67:/home/camana)
+scp  - копирование файла на удаленый сервер (scp infra/docker-compose.yml camana@84.252.142.21:/home/camana)
 
 mv - перенести файл или папку (mv card.txt ~/ )
 

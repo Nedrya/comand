@@ -1,11 +1,7 @@
 git clone <ссылка> - копировать репозитарий
-
-git init - делает из папки репозиторий
-git remote add origin <<ссылка на репозитарий>> -- соединить репозиторий компьютера с гитхабом
-
 git pull 
 git push
-git fetch - выкачивает все ветки из гита в локальную машину
+git fetch
 git merge <название_ветки> — скопировать все изменения из ветки в ветку
 git branch - просмотр ветки
 git branch <название_ветки> — создать новую ветку.
@@ -15,46 +11,6 @@ git checkout master ./ - копирование всей ветки
 git show HEAD - что изменилось в коммите
 git log - информация о коммитах
 git reset ******* - откат обновления (*-первые 7 цифр)
-
-#####################################
-#Создание проекта
-django-admin startproject имя_проекта
-
-#Создание приложения
-python manage.py startapp ice_cream
-django-admin startapp
-
-Запуск проекта (переходим в папку с проэктом, активируем виртуальное окружение)
-python manage.py runserver - простой запуск
-python manage.py runserver 0:8000 - запустить сервер для внешних IP
-gunicorn --bind 0.0.0.0:8000 yatube.wsgi - запуск веб сервера nnginx  при помощи Web-Server Gateway Interface (WSGI) 
-Остановка: Ctrl+C
-################_Миграция_####################################
-#Миграция БД:
-Создание скрипта миграции
-python manage.py makemigrations
-Запуск всех миграций
-python manage.py migrate
-Откат миграции
-python manage.py migrate posts *******
-
-python manage.py dumpdata > dump.json  - сохранить БД в json
-
-Создание пользователя суперадмина
-python manage.py createsuperuser
-
-Создание приложения:
-python3 manage.py startapp имя_приложения
-python3 -m django startapp имя_приложения
-django-admin startapp имя_приложения
-
-Создание файла requirements.txt
-pip freeze > requirements.txt 
-В виртуальном окружении установка зависимости
-pip install -r requirements.txt
-
-При развёртывании проекта на новой машине нужно из папки, содержащей requirements.txt, при активированном виртуальном окружении выполнить команду
-(venv) ... Dev/yatube_project$ pip install -r requirements.txt 
 
 ######################
 
@@ -100,6 +56,46 @@ mkdir templates - создать папку
 (venv)...$ python3 -m pip install --upgrade pip
 # Менеджер пакетов pip, поставь мне, пожалуйста, Django версии 2.2.19
 (venv)...$ pip install Django==2.2.19
+
+##################################### DJANGO
+#Создание проекта
+django-admin startproject имя_проекта
+
+#Создание приложения
+python manage.py startapp ice_cream
+django-admin startapp
+
+Запуск проекта (переходим в папку с проэктом, активируем виртуальное окружение)
+python manage.py runserver - простой запуск
+python manage.py runserver 0:8000 - запустить сервер для внешних IP
+gunicorn --bind 0.0.0.0:8000 yatube.wsgi - запуск веб сервера nnginx  при помощи Web-Server Gateway Interface (WSGI) 
+Остановка: Ctrl+C
+################_Миграция_####################################
+#Миграция БД:
+Создание скрипта миграции
+python manage.py makemigrations
+Запуск всех миграций
+python manage.py migrate
+Откат миграции
+python manage.py migrate posts *******
+
+python manage.py dumpdata > dump.json  - сохранить БД в json
+
+Создание пользователя суперадмина
+python manage.py createsuperuser
+
+Создание приложения:
+python3 manage.py startapp имя_приложения
+python3 -m django startapp имя_приложения
+django-admin startapp имя_приложения
+
+Создание файла requirements.txt
+pip freeze > requirements.txt 
+В виртуальном окружении установка зависимости
+pip install -r requirements.txt
+
+При развёртывании проекта на новой машине нужно из папки, содержащей requirements.txt, при активированном виртуальном окружении выполнить команду
+(venv) ... Dev/yatube_project$ pip install -r requirements.txt 
 
 #################_Unittest_###################################
 python3 -m unittest -v tests.py
