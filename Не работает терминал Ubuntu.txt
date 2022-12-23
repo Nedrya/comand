@@ -1,0 +1,6 @@
+sudo locale-gen
+sudo localectl set-locale LANG=en_US.utf8
+
+reboot system или 
+sudo systemctl restart gdm или 
+sudo service gdm restart
