@@ -1,0 +1,35 @@
+#
+DROP DATABASE <name_db> - удалить БД
+
+#
+DROP TABLE <name_table> - удалить таблицу
+
+#
+CREATE DATABASE <name_db> -создать БД
+
+#
+CREATE TABLE <name_table> - создание таблицы
+(
+	<name_table_id> integer PRIMARY KEY,
+	<name_colomn> varchar(128) NOT NULL,
+	<name_colomn> text NOT NULL
+	<fk_name_colomn_id> integer REFERENCES <name_table>(id_name_colomn_pk)
+);  #<- точка с запятой ставится если после запроса идет сразу следующий.
+
+#
+INSERT INTO <name_table> - добавить(вставить) в таблицу значения
+VALUES
+(1, 'вторая колонка', '3'),
+(1, 'если есть верхние запятые'' то ставим две запятые', '3');
+
+#
+SELECT <name_table или *> FROM <name_db> - сделать выборку для показа таблиц в определенной БД
+
+
+#    Добавление колонки в таблицу и добавление правио для связи таблиц.
+ALTER TABLE <name_table> - изменение таблицы 
+ADD COLOMN < fk_name_colomn_1 > integer; - добавляем в неё колонку
+
+ALTER TABLE <name_table> -изменение таблици 
+ADD CONSTRAINT < fk_name_colomn_2 > FOREIGN KEY ( fk_name_colomn_1 ) REFERENCES <name_table>(id_name_colomn_pk)
+	создаём правило связи двух таблиц по FK и ссылается (REFERENCE) на таблицу(ключь ид) с которой связь.
